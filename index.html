@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relationship Strategy Interview</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="ambient ambient-left"></div>
+      <div class="ambient ambient-right"></div>
+      <main class="app-card">
+        <section class="hero">
+          <p id="hero-eyebrow" class="eyebrow">Strategic Family Design</p>
+          <h1 id="hero-title">Интервью для построения семейного PRD</h1>
+          <p id="hero-copy" class="hero-copy">
+            Ответь на вопросы в удобном темпе. Если какая-то тема требует
+            детализации, приложение автоматически задаст дополнительные вопросы.
+            В финале ты получишь полный список вопросов и своих ответов.
+          </p>
+          <div class="track-switcher" role="tablist" aria-label="Выбор режима опроса">
+            <button type="button" id="family-track-button" class="track-button is-active">
+              Семья
+            </button>
+            <button type="button" id="relationship-track-button" class="track-button">
+              Отношения
+            </button>
+            <button type="button" id="dating-track-button" class="track-button">
+              Dating
+            </button>
+            <button type="button" id="breakup-track-button" class="track-button">
+              Recovery
+            </button>
+            <button type="button" id="compatibility-track-button" class="track-button">
+              Two People
+            </button>
+          </div>
+          <p id="evidence-note" class="evidence-note">
+            Режим про отношения опирается на исследования по adult attachment,
+            perceived partner responsiveness, conflict repair и commitment.
+          </p>
+          <div class="hero-meta">
+            <span>5 основных блоков</span>
+            <span>Умные follow-up вопросы</span>
+            <span>Итоговое резюме</span>
+          </div>
+        </section>
+
+        <section class="survey-panel">
+          <div class="panel-top">
+            <div>
+              <p id="block-label" class="block-label"></p>
+              <h2 id="question-title" class="question-title"></h2>
+            </div>
+            <div class="step-chip">
+              <span id="step-counter"></span>
+            </div>
+          </div>
+
+          <div id="participant-shell" class="participant-shell hidden">
+            <div class="participant-copy">
+              <strong id="participant-title">Человек A</strong>
+              <span id="participant-subtitle">Сейчас мы заполняем ответы для первого человека.</span>
+            </div>
+            <div class="participant-toggle">
+              <button type="button" id="participant-a-button" class="participant-button is-active">
+                Человек A
+              </button>
+              <button type="button" id="participant-b-button" class="participant-button">
+                Человек B
+              </button>
+            </div>
+          </div>
+
+          <div class="progress-track" aria-hidden="true">
+            <div id="progress-bar" class="progress-bar"></div>
+          </div>
+
+          <form id="survey-form" novalidate>
+            <p id="question-help" class="question-help"></p>
+            <div id="question-body" class="question-body"></div>
+
+            <p id="validation-message" class="validation-message" role="alert"></p>
+
+            <div class="actions">
+              <button type="button" id="back-button" class="button button-secondary">
+                Назад
+              </button>
+              <button type="submit" id="next-button" class="button button-primary">
+                Дальше
+              </button>
+            </div>
+          </form>
+
+          <section id="results-view" class="results-view hidden" aria-live="polite">
+            <div class="results-header">
+              <p class="eyebrow">Interview Complete</p>
+              <h2 id="results-title">Твоя карта ответов</h2>
+              <p id="results-copy">
+                Ниже собраны все вопросы, на которые ты ответил, включая
+                уточняющие ветки.
+              </p>
+            </div>
+
+            <div class="results-actions">
+              <button type="button" id="restart-button" class="button button-secondary">
+                Пройти заново
+              </button>
+              <button type="button" id="copy-button" class="button button-primary">
+                Скопировать ответы
+              </button>
+              <button type="button" id="json-button" class="button button-secondary">
+                Скачать JSON
+              </button>
+              <button type="button" id="pdf-button" class="button button-secondary">
+                Сохранить PDF
+              </button>
+              <button type="button" id="prd-button" class="button button-primary">
+                Скачать PRD
+              </button>
+            </div>
+
+            <div id="insights-view" class="insights-grid"></div>
+            <section class="result-block prd-block">
+              <h3 id="draft-title">PRD-черновик</h3>
+              <p id="draft-intro" class="prd-intro">
+                Это автогенерируемый рабочий документ на основе твоих ответов.
+                Его можно скачать в Markdown и доработать вручную.
+              </p>
+              <div id="prd-preview" class="prd-preview"></div>
+            </section>
+            <div id="results-summary" class="results-summary"></div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
